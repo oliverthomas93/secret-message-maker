@@ -5,119 +5,28 @@ let decodeSecretMessageInput = document.querySelector("#decode");
 let decodeSecretMessageButton = document.querySelector(".decode-secret-message-button");
 let decodedSecretMessageOutput = document.querySelector(".decoded-secret-message-output");
 
-let messageEncrypter = (val) => {
-    if (val === 'a') {
-        return 'f'
-    } else if (val === 'b') {
-        return 'x'
-    } else if (val === 'c') {
-        return 'l'
-    } else if (val === 'd') {
-        return 'j'
-    } else if (val === 'e') {
-        return 'z'
-    } else if (val === 'f') {
-        return 'o'
-    } else if (val === 'g') {
-        return 'u'
-    } else if (val === 'h') {
-        return 'b'
-    } else if (val === 'i') {
-        return 'd'
-    } else if (val === 'j') {
-        return 'w'
-    } else if (val === 'k') {
-        return 'n'
-    } else if (val === 'l') {
-        return 'e'
-    } else if (val === 'm') {
-        return 'c'
-    } else if (val === 'n') {
-        return 'r'
-    } else if (val === 'o') {
-        return 'v'
-    } else if (val === 'p') {
-        return 'h'
-    } else if (val === 'q') {
-        return 'a'
-    } else if (val === 'r') {
-        return 'g'
-    } else if (val === 's') {
-        return 'i'
-    } else if (val === 't') {
-        return 'k'
-    } else if (val === 'u') {
-        return 'y'
-    } else if (val === 'v') {
-        return 'm'
-    } else if (val === 'w') {
-        return 'q'
-    } else if (val === 'x') {
-        return 't'
-    } else if (val === 'y') {
-        return 's'
-    } else if (val === 'z') {
-        return 'p'
-    } else if (val === ' ') {
-        return ' '
-    }
+const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' '];
+const encryptedAlphabet = ['f','x','l','j','z','o','u','b','d','w','n','e','c','r','v','h','a','g','i','k','y','m','q','t','s','p',' '];
+
+
+const messageEncrypter = (val) => {
+    let x;
+    alphabet.forEach((letter, index) => {
+        if (val == letter) {
+            x = encryptedAlphabet[index];
+        }
+    });
+    return x;
 }
-let messageDecrypter = (val) => {
-    if (val === 'f') {
-        return 'a'
-    } else if (val === 'x') {
-        return 'b'
-    } else if (val === 'l') {
-        return 'c'
-    } else if (val === 'j') {
-        return 'd'
-    } else if (val === 'z') {
-        return 'e'
-    } else if (val === 'o') {
-        return 'f'
-    } else if (val === 'u') {
-        return 'g'
-    } else if (val === 'b') {
-        return 'h'
-    } else if (val === 'd') {
-        return 'i'
-    } else if (val === 'w') {
-        return 'j'
-    } else if (val === 'n') {
-        return 'k'
-    } else if (val === 'e') {
-        return 'l'
-    } else if (val === 'c') {
-        return 'm'
-    } else if (val === 'r') {
-        return 'n'
-    } else if (val === 'v') {
-        return 'o'
-    } else if (val === 'h') {
-        return 'p'
-    } else if (val === 'a') {
-        return 'q'
-    } else if (val === 'g') {
-        return 'r'
-    } else if (val === 'i') {
-        return 's'
-    } else if (val === 'k') {
-        return 't'
-    } else if (val === 'y') {
-        return 'u'
-    } else if (val === 'm') {
-        return 'v'
-    } else if (val === 'q') {
-        return 'w'
-    } else if (val === 't') {
-        return 'x'
-    } else if (val === 's') {
-        return 'y'
-    } else if (val === 'p') {
-        return 'z'
-    } else if (val === ' ') {
-        return ' '
-    }
+
+const messageDecrypter = (val) => {
+    let x;
+    encryptedAlphabet.forEach((letter, index) => {
+        if (val == letter) {
+            x = alphabet[index];
+        }
+    });
+    return x;
 }
 
 let createSecretMessage = () => {
